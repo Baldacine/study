@@ -1,0 +1,23 @@
+
+ *********************** Jest docs **************************
+ 
+ Only executa somente ele (isolar o teste)
+
+-tipos de Math:
+    --toBe
+    --toHaveLength - (Total de caracteres)
+    --toHaveProperty - (Tipo do valor)
+    --toBeFalsy - (Falso)
+    --toBeTruthy - (Verdadeiro)
+    --toBeUndefined - (Underfined)
+    --not.toBeUndefined (O NOT é a funcao do diferente)
+    --toBeNull
+    --toEqual
+    --toBeGreaterThan  (Maior que algum numero)
+    --toBeGreaterThanOrEqual (Maior ou igual que algum numero)
+    --toBeLessThan  (Menor que algum numero)
+    --toBeLessThanOrEqual  (Menor e igual que algum numero)
+    --toMatch (Expressao regular)
+    --toThrow(new Error('mensagem')) retorna error
+
+
