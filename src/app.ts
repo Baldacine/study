@@ -28,5 +28,5 @@ const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
 }
 server.use(errorHandler);
 
-//export default server;
-server.listen(process.env.PORT);
+export default server;
+//server.listen(process.env.PORT);
