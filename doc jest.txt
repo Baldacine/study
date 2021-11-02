@@ -1,6 +1,9 @@
+******************** biblioteca supertest
 
- *********************** Jest docs **************************
- 
+npm install -D supertest @types/supertest
+
+*********************** Jest docs **************************
+
  Only executa somente ele (isolar o teste)
 
 -tipos de Math:

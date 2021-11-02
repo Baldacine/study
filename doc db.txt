@@ -1,0 +1,11 @@
+
+********Mongo Database
+
+Download mongo community
+Download mongo compass (Client)
+
+********PostgreSQL Database
+
+Download PostgreSQL
+Download dbeaver (Client)
+

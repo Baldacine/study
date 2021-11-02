@@ -1,20 +1,23 @@
 import { Request, Response } from 'express';
-import * as loginService from '../services/loginService';
+import * as UserService from '../services/UserService';
 
 export const ping = (req: Request, res: Response) => {
     res.json({pong: true});
 }
 
 export const register = async (req: Request, res: Response) => {
-    if(req.body.email && req.body.senha) {
-        let { email, password } = req.body;
+    
+    console.log(req.body)
 
-        const newUser = await loginService.createUser(email, password);
+    if(req.body.email && req.body.password) {
+        let {email, password } = req.body;
+
+        const newUser = await UserService.createUser(email, password);
         if(newUser instanceof Error){
-            res.json({ error: newUser.message });
+            return res.json({ error: newUser.message });
         }else{
             res.status(201);
-            res.json({ id: newUser.id });
+            return res.json({ id: newUser.id });
         }
     }
 
@@ -22,12 +25,13 @@ export const register = async (req: Request, res: Response) => {
 }
 
 export const login = async (req: Request, res: Response) => {
-    if(req.body.email && req.body.senha) {
-        let email: string = req.body.email;
-        let password: string = req.body.senha;
+    if(req.body.email && req.body.password) {
 
-        const user = await  loginService.findByEmail(email);
-        if(user && loginService.matchPassword(password, user.senha))
+        let email: string = req.body.email;
+        let password: string = req.body.password;
+
+        const user = await  UserService.findByEmail(email);
+        if(user && UserService.matchPassword(password, user.password))
 
         if(user) {
             res.json({ status: true });
@@ -39,7 +43,7 @@ export const login = async (req: Request, res: Response) => {
 }
 
 export const list = async (req: Request, res: Response) => {
-    let users = await loginService.all();
+    let users = await UserService.all();
     let list: string[] = [];
 
     for(let i in users) {

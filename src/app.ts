@@ -2,7 +2,7 @@ import express, { Request, Response, ErrorRequestHandler } from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import loginRoutes from './routes/login';
+import userRoutes from './routes/user';
 
 dotenv.config();
 
@@ -14,8 +14,7 @@ server.use(express.static(path.join(__dirname, '../public')));
 server.use(express.urlencoded({ extended: true }));
 
 server.get('/ping', (req: Request, res: Response) => res.json({ pong: true }));
-
-server.use(loginRoutes);
+server.use('/user', userRoutes);
 
 server.use((req: Request, res: Response) => {
     res.status(404);
@@ -29,4 +28,5 @@ const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
 }
 server.use(errorHandler);
 
+//export default server;
 server.listen(process.env.PORT);
