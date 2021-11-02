@@ -1,5 +1,5 @@
 import * as UserService from '../../services/UserService';
-import { User, UserInstance } from '../../models/User';
+import { User, UserInstance } from '../../models/UserModel';
 
 describe('Testing user service',() =>{
     

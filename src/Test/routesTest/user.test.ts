@@ -1,7 +1,7 @@
 import { response } from 'express';
 import request from 'supertest';
 import app from '../../app';
-import { User } from '../../models/User';
+import { User } from '../../models/UserModel';
 
 describe('Testing api routes', () =>{
 
@@ -9,7 +9,7 @@ describe('Testing api routes', () =>{
     let password ='123456';
     
     beforeAll(async () => {
-        await User.sync({ force: true });
+        await User.sync({ force: true },);
     });
 
 
